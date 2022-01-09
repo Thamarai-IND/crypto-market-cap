@@ -22,7 +22,7 @@ const CoinsTable = () => {
       const {data} = await axios.get(CoinList(currency)); // {data} this is called destructing the datas
       setCoins(data);
       console.log(data);
-      console.log(data)
+      console.log(data.id)
       setLoading(false);
   }
   useEffect(() => {
@@ -46,6 +46,7 @@ const CoinsTable = () => {
   });
 
   const classes = useStyles();
+  //const history = useNavigate();
   const history = useNavigate();
   const darkTheme = createTheme({
     palette:{
@@ -104,9 +105,10 @@ const CoinsTable = () => {
                   .slice((page - 1) * 10, (page - 1) * 10 + 10)
                   .map((row) => {
                   const profit = row.price_change_percentage_24h > 0;
+                  console.log(row.id)
                   return (
                     <TableRow
-                        onClick={() => history.push(`/coins/${row.id}`)}
+                        onClick={() => history(`/coins/${row.id}`)}
                         className={classes.row}
                         key={row.name}
                       >
