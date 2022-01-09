@@ -124,6 +124,26 @@ const CoinPage = () => {
               {numberWithCommas(coin?.market_data.current_price[currency.toLowerCase()])}
             </Typography>
           </span>
+          <span style={{ display: "flex" }}>
+            <Typography variant="h5" className={classes.heading}>
+              Market Cap:
+            </Typography>
+            &nbsp; &nbsp;
+            <Typography
+              variant="h5"
+              style={{
+                fontFamily: "Montserrat",
+              }}
+            >
+              {symbol}{" "}
+              {numberWithCommas(
+                coin?.market_data.market_cap[currency.toLowerCase()]
+                  .toString()
+                  .slice(0, -6)
+              )}
+              M
+            </Typography>
+          </span>
           </div>
       </div>
       {/* chart */}
